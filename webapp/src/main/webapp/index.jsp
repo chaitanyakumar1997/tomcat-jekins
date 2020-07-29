@@ -20,4 +20,10 @@
     <button type="button" class="cancelbtn">Cancel</button>
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
-</form> 
+</form>
+
+
+link {
+  display: https://epos.telangana.gov.in/ePoS/FpsIssues_Report2.html;
+}
+
