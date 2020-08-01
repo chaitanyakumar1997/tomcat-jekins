@@ -6,6 +6,5 @@ Hii ! i am chaitanya
 
 
 
-
-I LOVE YOU DURGASAHITHI      miryalsguda
+Hii! i'm chaitanya ,I LOVE YOU DURGASAHITHI 
 
