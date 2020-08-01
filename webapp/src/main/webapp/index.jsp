@@ -1,11 +1,13 @@
+// File Name SendFileEmail.java
+
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
 import javax.activation.*;
 
-public class SendHTMLEmail {
+public class SendFileEmail {
 
-   public static void main(String [] args) {
+   public static void main(String [] args) {     
       // Recipient's email ID needs to be mentioned.
       String to = "abcd@gmail.com";
 
@@ -32,13 +34,33 @@ public class SendHTMLEmail {
          message.setFrom(new InternetAddress(from));
 
          // Set To: header field of the header.
-         message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+         message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));
 
          // Set Subject: header field
          message.setSubject("This is the Subject Line!");
 
-         // Send the actual HTML message, as big as you like
-         message.setContent("<h1>This is actual message</h1>", "text/html");
+         // Create the message part 
+         BodyPart messageBodyPart = new MimeBodyPart();
+
+         // Fill the message
+         messageBodyPart.setText("This is message body");
+         
+         // Create a multipar message
+         Multipart multipart = new MimeMultipart();
+
+         // Set text message part
+         multipart.addBodyPart(messageBodyPart);
+
+         // Part two is attachment
+         messageBodyPart = new MimeBodyPart();
+         String filename = "file.txt";
+         DataSource source = new FileDataSource(filename);
+         messageBodyPart.setDataHandler(new DataHandler(source));
+         messageBodyPart.setFileName(filename);
+         multipart.addBodyPart(messageBodyPart);
+
+         // Send the complete message parts
+         message.setContent(multipart );
 
          // Send message
          Transport.send(message);
@@ -47,6 +69,5 @@ public class SendHTMLEmail {
          mex.printStackTrace();
       }
    }
-}  
-
+}
 
