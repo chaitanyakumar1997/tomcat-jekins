@@ -5,5 +5,5 @@ From tomcat:8-jre8
 MAINTAINER :"anneboina.chaitanya30@gmail.com"
 
 #copy war file on to container
-COPY ./webapp.war /usr/share/tomcat8/webapps
+COPY ./webapp.war /usr/local/tomcat/webapps
 
